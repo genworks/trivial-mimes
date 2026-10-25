@@ -1,3 +1,13 @@
+Genworks fork
+-------------
+This is the Genworks fork of trivial-mimes, kept on Genworks' GitLab
+(gitlab.genworks.com, genworks/trivial-mimes) and mirrored to
+https://github.com/genworks/trivial-mimes.  It differs from upstream
+(https://codeberg.org/shinmera/trivial-mimes) in one way: `T`, `NIL` and
+`OTHERWISE` are written in lower case in the code, so the library also
+loads under a case-sensitive reader, such as Allegro CL's modern mode.
+Nothing changes under an upper-casing reader.
+
 About Trivial-Mimes
 -------------------
 This is a teensy library that provides some functions to determine the mime-type of a file. As I've had a need for this kind of functionality more than once now and haven't found any suitably lightweight alternative I quickly whipped this up.
