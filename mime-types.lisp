@@ -14,7 +14,7 @@
    #:mime-case))
 (in-package #:org.tymoonnext.trivial-mimes)
 
-(defvar *here* #.(make-pathname :name NIL :type NIL :defaults (or *compile-file-pathname* *load-pathname*)))
+(defvar *here* #.(make-pathname :name nil :type nil :defaults (or *compile-file-pathname* *load-pathname*)))
 
 (defun find-mime.types ()
   "Attempts to find a usable MIME.TYPES file.
@@ -39,7 +39,7 @@ If none can be found, an error is signalled."
         (cond
           ((and start (whitespace-p char))
            (push (subseq line start i) tokens)
-           (setf start NIL))
+           (setf start nil))
           ((not (or start (whitespace-p char)))
            (setf start i)))))
     (when start (push (subseq line start) tokens))
@@ -64,7 +64,7 @@ The file should have the following structure:
 
 MIME-TYPE FILE-EXTENSION*"
   (with-open-file (stream file :direction :input)
-    (loop for line = (read-line stream NIL)
+    (loop for line = (read-line stream nil)
           while line
           for tokens = (%read-tokens line)
           when (valid-name-p (first tokens))
@@ -86,7 +86,7 @@ If the file does not exist or the platform is not unix, NIL is returned."
               while (find char "abcdefghijklmnopqrstuvwxyz0123456789!#$&-^_.+/")
               do (write-char char mime)))))
   #-unix
-  NIL)
+  nil)
 
 (defun mime-lookup (pathname)
   "Attempts to get the mime-type by file extension comparison.
@@ -167,7 +167,7 @@ Example:
     `(let ((,mime (mime ,file)))
        (cond
          ,@(loop for ((mimes . body) . rest) on cases
-                 when (member mimes '(T OTHERWISE))
+                 when (member mimes '(t otherwise))
                    collect `(t ,@body) into clauses
                    and do (if rest
                               (warn "Clauses after T and OTHERWISE are not reachable.")

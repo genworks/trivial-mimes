@@ -8,6 +8,6 @@
   :homepage "https://shinmera.com/docs/trivial-mimes/"
   :bug-tracker "https://shinmera.com/project/trivial-mimes/issues"
   :source-control (:git "https://shinmera.com/project/trivial-mimes.git")
-  :serial T
+  :serial t
   :components ((:file "mime-types"))
   :depends-on ())
