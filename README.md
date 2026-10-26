@@ -1,4 +1,4 @@
-Genworks fork
+a Trivial-mimes variant that supports so-called modern-mode.
 -------------
 This is the Genworks fork of trivial-mimes, kept on Genworks' GitLab
 (gitlab.genworks.com, genworks/trivial-mimes) and mirrored to
